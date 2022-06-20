@@ -1,0 +1,18 @@
+AllCops:
+  NewCops: enable
+  Exclude:
+    - vendor/**/*
+    - db/schema.rb
+
+Metrics:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 256
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false

@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    container_name: ruby-grape
+    environment:
+      RACK_ENV: development
+      WEB_CONCURRENCY: "0"
+      MAX_THREADS: "1"
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/grape_api_boilerplate_development
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/usr/src/app
+    depends_on:
+      - db
+  db:
+    build:
+      context: ./postgres
+      dockerfile: Dockerfile
+    ports:
+      - "5432:5432"
+    volumes:
+      - "dbdata:/var/lib/postgresql/data"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+
+volumes:
+  dbdata:

@@ -1,0 +1,33 @@
+# frozen_string_literal: true
+
+require 'spec_helper'
+
+describe API::Root do
+  include Rack::Test::Methods
+
+  def app
+    API::Root
+  end
+
+  before do
+    @user = create(:user)
+  end
+
+  it 'logs in successfully with correct credentials' do
+    post '/api/login', username: @user.username, password: 'password1'
+    expect(last_response.status).to eq(200)
+    expect(JSON.parse(last_response.body, symbolize_names: true).keys).to contain_exactly(:token)
+  end
+
+  it 'cannot login with incorrect password' do
+    post '/api/login', username: @user.username, password: 'wrong_password'
+    expect(last_response.status).to eq(401)
+    expect(last_response.body).to eq({ message: 'incorrect credentials' }.to_json)
+  end
+
+  it 'cannot login with incorrect username' do
+    post '/api/login', username: 'does_not_exist', password: 'password1'
+    expect(last_response.status).to eq(401)
+    expect(last_response.body).to eq({ message: 'incorrect credentials' }.to_json)
+  end
+end

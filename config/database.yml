@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  pool: <%= ENV["DB_POOL"] || ENV["MAX_THREADS"] || 1 %>
+  timeout: 5000
+  encoding: unicode
+
+development:
+  <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
+
+test:
+  <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
+
+production:
+  <<: *default
+  url: <%= ENV["DATABASE_URL"] %>

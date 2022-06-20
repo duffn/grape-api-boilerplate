@@ -1,0 +1,44 @@
+# frozen_string_literal: true
+
+require 'spec_helper'
+
+describe JwtTokenService do
+  include Rack::Test::Methods
+
+  before do
+    Timecop.freeze(Time.local(2142))
+    @user_id = '9043bf3e-d772-4a6a-b618-2f413cebe571'
+    @valid_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1c2VyX2lkIjoiOTA0M2JmM2UtZDc3Mi00YTZhLWI2MTgtMmY0MTNjZWJlNTcxIiwiZXhwIjo1NDI3ODIwODYwLCJpc3MiOiJncmFwZS1hcGktYm9pbGVycGxhdGUifQ.bu1DfeHUskbI3tQQgULZoOD9nJgri27Y1vJYHn-yZKCZgyMpRO8OKq-J52969OEuhV83qCBE5wfgS96HV0XTnokLWSLtOVczeL7CYYBDo2UTz8Wf0Y6_yjdWT8dm1CQ-lcOK3ZcKULzPew8mGZOvyjMNtt-NOQz-46HTzVIXN2Jho6do4-yPIxTiBpbRqAt-kh9cLs2fvPSPgjfvBQ6gYn6so13NMaYFeEOrbgsG1I-J5JOyq1lkuBO9QI-obILSr6geWn2fdAlNSy7RRY9I-TETXsBTq8vMUmTKIRN7gSrDGxk0HSJewlfCw1bgmwTRZjQO8bTKN0FGxAZEjUYD4ZEXje3GuhrToXv_SGSQ5epGGGT0wFfUT72wk8IDtNFUb8vbSgKyjj2ywZf2-fVHRT1uEEEt1CSgFTG1L7lisUpWs7DzjkxdVabbJiKQE7OgLEABTAlJQ7_NiPJ1pwIuXl0kXdQbRUvoAh1wiCTejamgxGpo3I_M_sRzoB5ccUuLuRuwSMeniRBP9KSa72Us0nA4zLFfnaQCQS3RwO9GD1BjP8WzmjdDNUpKaKyZH2FQs2TUYjWh1NLFB_Oxg4F2f2N7pIrNQeXW_7DWuuZsTte2dxv4EZ-e9XObD-usCQA8xN2mnaUsHoWO5fDeVT7HYMMquiBJ9JNLqjoAFoaQF9w'
+    @expired_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1c2VyX2lkIjoiOTA0M2JmM2UtZDc3Mi00YTZhLWI2MTgtMmY0MTNjZWJlNTcxIiwiZXhwIjo5MTUxNDg4NjAsImlzcyI6ImdyYXBlLWFwaS1ib2lsZXJwbGF0ZSJ9.OpYRVUVK5OlJXY2rO0HW7dGdFOPjw8Zsw3VBKqKp6mh8QUps76WpKI2C-SjnuQKeWxgwJg4---WUEOEiHU8tNajsH2irW9NU-teaKq_qjg7Tg1rw4XfbGgguRpO-F317E5d9qddhzt0pbTExlaW5ewrCPs3z55CQq24QCPVFYUVjH2x9ejURRZ5ZWO1TD46Km2ibKkFzNBsfPM1I3HdtSbjUmI54a84yqeXIrC_XBDS09QJyxiFf2eH3QQ9mkzgO3caWO4wVK3E1kDFzqCM8S--tMRc2ONxxcqXHk6hcDDVqLPRZDC-sYWKxIPLPV2DPxonm0Y3v_Q6rm_hLdeyEzjTbbvJjTBPwj3K6nHUlJdBHmMG6GwrftCCMlAVot8PTcgQmbojtWWEhT24fIisO_YFKcWXdt7gkdE6rxD1rxuy8fKt880Fj7NiyfcXE0UasEq4q_DyR6wyAixQl-bdacFrXs6HMSW7qfnKWV94rrsU6uQqsGfrmVxrrtX0abBxmcT1XA3viJr_q5yYbpXddwcq-5wr8ZeF-bULhumf4sIT5144E_AOZqa4RGFqolRT_B8LhREPSe8QrVzUnZEApHTEUhfvyPaPPFEUbSx6EBCQDsR4k8JXH6ByMFUPSIwXz56ALsKpLs_bfKne_rW_z-MaxGTo5M8cEV7g2B6vYH60'
+    @invalid_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1c2VyX2lkIjoiOTA0M2JmM2UtZDc3Mi00YTZhLWI2MTgtMmY0MTNjZWJlNTcxIiwiZXhwIjo1NDI3ODIwODYwLCJpc3MiOiJncmFwZS1hcGktYm9pbGVycGxhdGUifQ.bu1DfeHUskbI3tQQgULZoOD9nJgri27Y1vJYHn-yZKCZgyMpRO8OKq-J52969OEuhV83qCBE5wfgS96HV0XTnokLWSLtOVczeL7CYYBDo2UTz8Wf0Y6_yjdWT8dm1CQ-lcOK3ZcKULzPew8mGZOvyjMNtt-NOQz-46HTzVIXN2Jho6do4-yPIxTiBpbRqAt-kh9cLs2fvPSPgjfvBQ6gYn6so13NMaYFeEOrbgsG1I-J5JOyq1lkuBO9QI-obILSr6geWn2fdAlNSy7RRY9I-TETXsBTq8vMUmTKIRN7gSrDGxk0HSJewlfCw1bgmwTRZjQO8bTKN0FGxAZEjUYD4ZEXje3GuhrToXv_SGSQ5epGGGT0wFfUT72wk8IDtNFUb8vbSgKyjj2ywZf2-fVHRT1uEEEt1CSgFTG1L7lisUpWs7DzjkxdVabbJiKQE7OgLEABTAlJQ7_NiPJ1pwIuXl0kXdQbRUvoAh1wiCTejamgxGpo3I_M_sRzoB5ccUuLuRuwSMeniRBP9KSa72Us0nA4zLFfnaQCQS3RwO9GD1BjP8WzmjdDNUpKaKyZH2FQs2TUYjWh1NLFB_Oxg4F2f2N7pIrNQeXW_7DWuuZsTte2dxv4EZ-e9XObD-usCQA8xN2mnaUsHoWO5fDeVT7HYMMquiBJ9JNLqjoAFoaQF9W'
+    @incorrect_iss_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1c2VyX2lkIjoiOTA0M2JmM2UtZDc3Mi00YTZhLWI2MTgtMmY0MTNjZWJlNTcxIiwiZXhwIjo1NDI3ODIwODYwLCJpc3MiOiJncmFwZS1hcGktYm9pbGVycGxhdGUyIn0.HzkOznLfGAUnEvISxcweVtDb4zRQ8Q_dyPEyprtI7fdIY4OSJT5O4ZYBxqH1bUyStsOBxFCQ5TlhB6bmDLnGFGdVrEonksbMhJWYdW02e-EZoRYVrx-fsBwACQRdXeHI24QYSZJsZHek5SaJQm1KXQZSSk1S2sKD0_jOQ7_QZJvvfBpeRS8eWGF9BdrKWEWJlZh32W1GcflCK20mUBlbpHf82-dPt9sE6usumlQIjhijG-adkK6V3AcUEzbPKZa2hkqrL_fV3-IMMbKEZ1TRm6EzNRoxf9sF-oi2wNtzBFz6oQ5p98zPHSIyuhfqwF4eQQ8uPQG3Mjl7DfdyYhG-ZcwGb8cm3cjgHMnmHDbMPMIvMq8GjXO9r1oe8KTuiNkASpSGGpFmObYRExi5B1JeSFXAbwh-EJOqPiA9whiwmd-gNntHap54k-oUXT2M5Wa6aFix0llo4aU8xDpZRgEMEgnDxDftPf3YcFtinIwmH_ijZx1mXqznM7d-jclPndNUneevbm8--__IyohBskqEV_TC7pYe07AINaIHMuuD8qf2Z_-S5OE5Z2STvsWy6wDwKYsa1hr42iMGYVEJlcIgZnxCRj1s6Ee7fkPCYE0u4Tqq0SfR-tgj9ff5Ra_S5QTCEgR_iMN3-xGJXPEY0MpN4EppJmN5F6f-7eAYitsz_wY'
+  end
+
+  after do
+    Timecop.return
+  end
+
+  it 'encodes a JWT token' do
+    token = JwtTokenService.new.encode(user_id: @user_id)
+    expect(token).to eq(@valid_token)
+  end
+
+  it 'decodes a JWT token' do
+    decoded_data = JwtTokenService.new.decode(@valid_token)
+    expect(decoded_data[0]['exp']).to eq(5_427_820_860)
+    expect(decoded_data[0]['user_id']).to eq(@user_id)
+    expect(decoded_data[0]['iss']).to eq(Settings.jwt.issuer)
+  end
+
+  it 'fails on an invalid JWT token' do
+    expect { JwtTokenService.new.decode(@invalid_token) }.to raise_error(JWT::DecodeError)
+  end
+
+  it 'fails on an expired JWT token' do
+    expect { JwtTokenService.new.decode(@expired_token) }.to raise_error(JWT::DecodeError)
+  end
+
+  it 'fails on an incorrect iss claim' do
+    expect { JwtTokenService.new.decode(@incorrect_iss_token) }.to raise_error(JWT::InvalidIssuerError)
+  end
+end

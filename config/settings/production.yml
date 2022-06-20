@@ -1,0 +1,3 @@
+jwt:
+  issuer: grape-api-boilerplate
+  expiration_time_minutes: 60
