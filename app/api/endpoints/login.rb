@@ -32,7 +32,7 @@ module GrapeApiBoilerplate
         post :login do
           if (user_id = authorized?)
             status :ok
-            { token: JwtTokenService.new.encode(user_id:) }
+            { token: JwtTokenService.new.encode(user_id: user_id) }
           else
             status :unauthorized
             { message: 'incorrect credentials' }

@@ -42,7 +42,7 @@ end
 
 # Shows app routes
 task routes: :environment do
-  API::Root.routes.each do |route|
+  GrapeApiBoilerplate::Api::Root.routes.each do |route|
     method = route.request_method.ljust(10)
     path = route.origin
     puts "      #{method} #{path}"
@@ -71,7 +71,7 @@ namespace :users do
     username = prompt('Username: ')
     password = prompt('Password: ')
 
-    user = User.new(username:, password:, email:)
+    user = User.new(username: username, password: password, email: email)
     user.save!
   end
 end
