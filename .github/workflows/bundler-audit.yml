@@ -15,6 +15,7 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
-      - run: |
+      - name: Run bundler audit
+        run: |
           bundle exec rake bundler:audit:update
           bundle exec rake bundler:audit:check
