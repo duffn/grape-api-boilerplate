@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
-module API
-  module Helpers
-    def logger
-      Root.logger
+module GrapeApiBoilerplate
+  module Api
+    module Helpers
+      def logger
+        Root.logger
+      end
     end
   end
 end

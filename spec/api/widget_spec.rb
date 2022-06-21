@@ -2,11 +2,11 @@
 
 require 'spec_helper'
 
-describe API::Root do
+describe GrapeApiBoilerplate::Api::Root do
   include Rack::Test::Methods
 
   def app
-    API::Root
+    GrapeApiBoilerplate::Api::Root
   end
 
   before do
