@@ -42,7 +42,7 @@ end
 
 # Shows app routes
 task routes: :environment do
-  API::Root.routes.each do |route|
+  GrapeApiBoilerplate::Api::Root.routes.each do |route|
     method = route.request_method.ljust(10)
     path = route.origin
     puts "      #{method} #{path}"

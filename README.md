@@ -33,6 +33,14 @@ openssl rsa -in jwtRS256.key -pubout -outform PEM -out jwtRS256.key.pub
 docker compose up --build
 ```
 
+- Setup and seed the database.
+
+```
+docker compose exec app bundle exec rake db:setup
+```
+
+- Visit your API at http://localhost:3000
+
 ## Creating a user
 
 - Run the create users Rake task.

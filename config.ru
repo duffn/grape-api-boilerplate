@@ -14,5 +14,5 @@ use OTR::ActiveRecord::ConnectionManagement
 # Load Swagger UI when running locally.
 use Rack::Static, urls: ['/public/swagger'] unless ENV['RACK_ENV'] == 'production'
 
-API::Root.compile!
-run API::Root
+GrapeApiBoilerplate::Api::Root.compile!
+run GrapeApiBoilerplate::Api::Root
