@@ -1,0 +1,21 @@
+name: Bundler Audit
+on: [ pull_request ]
+jobs:
+  bundler-audit:
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby:
+          - 3.1
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
+      - name: Run bundler audit
+        run: |
+          bundle exec rake bundler:audit:update
+          bundle exec rake bundler:audit:check

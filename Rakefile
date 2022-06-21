@@ -32,6 +32,10 @@ begin
   # Rubocop
   require 'rubocop/rake_task'
   RuboCop::RakeTask.new(:rubocop)
+
+  # Bundler audit
+  require 'bundler/audit/task'
+  Bundler::Audit::Task.new
 rescue LoadError
   puts 'Not loading RSpec or Rubocop.'
 end
