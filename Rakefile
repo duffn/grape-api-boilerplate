@@ -36,7 +36,7 @@ begin
   require 'bundler/audit/task'
   Bundler::Audit::Task.new
 rescue LoadError
-  puts 'Not loading RSpec or Rubocop.'
+  puts 'Not loading development only rake tasks.'
 end
 
 # Shows app routes
