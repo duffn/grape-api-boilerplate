@@ -22,7 +22,7 @@ module GrapeApiBoilerplate
             }
             get do
               payload = request_jwt.payload.to_h
-              present paginate(Widget.where(user_id: payload[:user_id])), with: GrapeApiBoilerplate::Api::Entities::V1::WidgetEntity
+              present paginate(Widget.where(user_id: payload[:user_id]).order(:updated_at)), with: GrapeApiBoilerplate::Api::Entities::V1::WidgetEntity
             end
           end
         end
