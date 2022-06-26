@@ -35,7 +35,7 @@ describe JwtTokenService do
   end
 
   it 'fails on an expired JWT token' do
-    expect { JwtTokenService.new.decode(@expired_token) }.to raise_error(JWT::DecodeError)
+    expect { JwtTokenService.new.decode(@expired_token) }.to raise_error(JWT::ExpiredSignature)
   end
 
   it 'fails on an incorrect iss claim' do
