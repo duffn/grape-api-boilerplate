@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rubygems'
-
 ENV['RACK_ENV'] ||= 'test'
 
 require 'simplecov'
@@ -31,9 +29,3 @@ end
 
 # Tell RSpec not to truncate output.
 RSpec::Support::ObjectFormatter.default_instance.max_formatted_output_length = nil
-
-# require 'simplecov'
-# SimpleCov.start
-#
-# require 'codecov'
-# SimpleCov.formatter = SimpleCov::Formatter::Codecov

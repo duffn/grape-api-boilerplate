@@ -5,7 +5,6 @@ services:
     build:
       context: .
       dockerfile: dev.Dockerfile
-    container_name: ruby-grape
     environment:
       RACK_ENV: development
       WEB_CONCURRENCY: "0"

@@ -24,15 +24,15 @@ module GrapeApiBoilerplate
       end
 
       # Routes
-      mount ::GrapeApiBoilerplate::Api::Endpoints::Session
-      mount ::GrapeApiBoilerplate::Api::Endpoints::V1::HelloWorldEndpoint
-      mount ::GrapeApiBoilerplate::Api::Endpoints::V1::WidgetEndpoint
+      mount GrapeApiBoilerplate::Api::Endpoints::Session
+      mount GrapeApiBoilerplate::Api::Endpoints::V1::HelloWorldEndpoint
+      mount GrapeApiBoilerplate::Api::Endpoints::V1::WidgetEndpoint
 
       add_swagger_documentation \
-      info: {
-        title: 'Grape Boilerplate',
-        description: 'A full-featured API boilerplate to get you started with the Grape framework.'
-      }
+        info: {
+          title: 'Grape Boilerplate',
+          description: 'A full-featured API boilerplate to get you started with the Grape framework.'
+        }
 
       # Handle 404s
       route :any, '*path' do
