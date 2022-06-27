@@ -25,7 +25,7 @@ gem 'rake', '~> 13.0', '>= 13.0.6'
 group :development do
   gem 'bundler-audit', '~> 0.9.1'
   gem 'guard-puma', '~> 0.7.0'
-  gem 'rubocop', '~> 1.30', '>= 1.30.1'
+  gem 'rubocop', '~> 1.31'
   gem 'rubocop-rake', '~> 0.6.0'
   gem 'rubocop-rspec', '~> 2.11', '>= 2.11.1'
 end
