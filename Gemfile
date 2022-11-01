@@ -34,7 +34,7 @@ group :test do
   gem 'factory_bot', '~> 6.2', '>= 6.2.1'
   gem 'faker', '~> 2.23'
   gem 'rack-test', '~> 2.0'
-  gem 'rspec', '~> 3.11'
+  gem 'rspec', '~> 3.12'
   gem 'simplecov', '~> 0.21.2'
   gem 'simplecov-cobertura', '~> 2.1'
   gem 'timecop', '~> 0.9.5'
