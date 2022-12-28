@@ -20,7 +20,7 @@ task :environment do
   require File.expand_path('config/environment.rb', __dir__)
 end
 
-# Don't bomb when running Rake tasks on Heroku.
+# Don't bomb when running Rake tasks on fly.io.
 begin
   # RSpec
   require 'rspec/core'
