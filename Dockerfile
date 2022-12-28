@@ -16,6 +16,8 @@ RUN bundle config set --without 'development test' \
 # Production
 FROM ruby:3.1.2-alpine as production
 
+ENV TINI_SUBREAPER=true
+
 WORKDIR /usr/src/app
 
 RUN apk add --no-cache tini \
