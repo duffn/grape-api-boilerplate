@@ -32,7 +32,7 @@ end
 
 group :test do
   gem 'factory_bot', '~> 6.2', '>= 6.2.1'
-  gem 'faker', '~> 2.23'
+  gem 'faker', '~> 3.1'
   gem 'rack-test', '~> 2.0'
   gem 'rspec', '~> 3.12'
   gem 'simplecov', '~> 0.21.2'
