@@ -37,5 +37,5 @@ group :test do
   gem 'rspec', '~> 3.12'
   gem 'simplecov', '~> 0.21.2'
   gem 'simplecov-cobertura', '~> 2.1'
-  gem 'timecop', '~> 0.9.5'
+  gem 'timecop', '~> 0.9.6'
 end
