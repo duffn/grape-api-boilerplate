@@ -35,7 +35,7 @@ group :test do
   gem 'faker', '~> 3.1'
   gem 'rack-test', '~> 2.0'
   gem 'rspec', '~> 3.12'
-  gem 'simplecov', '~> 0.21.2'
+  gem 'simplecov', '~> 0.22.0'
   gem 'simplecov-cobertura', '~> 2.1'
   gem 'timecop', '~> 0.9.5'
 end
