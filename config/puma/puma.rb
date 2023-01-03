@@ -4,7 +4,7 @@ workers Integer(ENV.fetch('WEB_CONCURRENCY', 1))
 threads_count = Integer(ENV.fetch('MAX_THREADS', 5))
 threads threads_count, threads_count
 
-rackup DefaultRackup
+rackup DefaultRackup if defined?(DefaultRackup)
 environment ENV.fetch('RACK_ENV', 'development')
 
 preload_app!
