@@ -18,7 +18,7 @@ gem 'kaminari', '~> 1.2', '>= 1.2.2'
 gem 'otr-activerecord', '~> 2.1', '>= 2.1.1'
 gem 'pg', '~> 1.4'
 gem 'puma', '~> 6.0'
-gem 'rack', '~> 2.2'
+gem 'rack', '~> 3.0'
 gem 'rack-cors', '~> 1.1', '>= 1.1.1'
 gem 'rake', '~> 13.0', '>= 13.0.6'
 
