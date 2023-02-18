@@ -19,7 +19,7 @@ gem 'otr-activerecord', '~> 2.1'
 gem 'pg', '~> 1.4'
 gem 'puma', '~> 6.1'
 gem 'rack', '~> 2.2'
-gem 'rack-cors', '~> 1.1', '>= 1.1.1'
+gem 'rack-cors', '~> 2.0'
 gem 'rake', '~> 13.0', '>= 13.0.6'
 
 group :development do
