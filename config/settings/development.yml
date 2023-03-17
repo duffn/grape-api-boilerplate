@@ -3,3 +3,5 @@ jwt:
   private_key_path: ./config/jwt/jwtRS256.key
   public_key_url: ./config/jwt/jwtRS256.key.pub
   expiration_time_minutes: 60
+prometheus:
+  enabled: false

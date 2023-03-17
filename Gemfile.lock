@@ -153,6 +153,10 @@ GEM
       mustermann (>= 1.0.0)
     nenv (0.3.0)
     nio4r (2.5.8)
+    nokogiri (1.13.10-aarch64-linux)
+      racc (~> 1.4)
+    nokogiri (1.13.10-arm64-darwin)
+      racc (~> 1.4)
     nokogiri (1.13.10-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.13.10-x86_64-linux)
@@ -167,6 +171,7 @@ GEM
     parser (3.2.1.1)
       ast (~> 2.4.1)
     pg (1.4.6)
+    prometheus-client (4.0.0)
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -245,6 +250,8 @@ GEM
     zeitwerk (2.6.7)
 
 PLATFORMS
+  aarch64-linux-musl
+  arm64-darwin-21
   x86_64-darwin-20
   x86_64-linux
   x86_64-linux-musl
@@ -267,6 +274,7 @@ DEPENDENCIES
   kaminari (~> 1.2, >= 1.2.2)
   otr-activerecord (~> 2.1)
   pg (~> 1.4)
+  prometheus-client (~> 4.0)
   puma (~> 6.1)
   rack (~> 2.2)
   rack-cors (~> 2.0)
