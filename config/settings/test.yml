@@ -3,3 +3,5 @@ jwt:
   private_key_path: ./spec/fixtures/jwt/testing_jwtRS256.key
   public_key_url: ./spec/fixtures/jwt/testing_jwtRS256.key.pub
   expiration_time_minutes: 1
+prometheus:
+  enabled: false

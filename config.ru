@@ -14,5 +14,14 @@ use OTR::ActiveRecord::ConnectionManagement
 # Load Swagger UI when running locally.
 use Rack::Static, urls: ['/public/swagger'] unless ENV['RACK_ENV'] == 'production'
 
+if Settings.prometheus.enabled
+  require 'prometheus/middleware/collector'
+  require 'prometheus/middleware/exporter'
+
+  use Rack::Deflater
+  use Prometheus::Middleware::Collector
+  use Prometheus::Middleware::Exporter
+end
+
 GrapeApiBoilerplate::Api::Root.compile!
 run GrapeApiBoilerplate::Api::Root

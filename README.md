@@ -124,6 +124,21 @@ bundle exec rake db:seed
 
 - Use your new API!
 
+### Prometheus
+
+You can enabled [Prometheus](https://prometheus.io/) metrics for your API by setting `prometheus.enabled` in your production settings file.
+
+- Update the setting in `app/settings/production.yml`.
+
+```yaml
+prometheus:
+  enabled: true
+```
+
+- The default middleware will provide some basic metrics out of the box. See the [Ruby Prometheus client library documentation](https://github.com/prometheus/client_ruby) for advanced usage.
+
+_Note_: Prometheus metrics should not be exposed publicly! Please ensure you know what you're doing before enabling this feature in your environment.
+
 #### Want to play around?
 
 There's an instance of this API running at https://grape-api-boilerplate.fly.dev/. If it doesn't respond right
