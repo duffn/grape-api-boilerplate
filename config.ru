@@ -14,6 +14,8 @@ use OTR::ActiveRecord::ConnectionManagement
 # Load Swagger UI when running locally.
 use Rack::Static, urls: ['/public/swagger'] unless ENV['RACK_ENV'] == 'production'
 
+use Sentry::Rack::CaptureExceptions if Settings.sentry.enabled
+
 if Settings.prometheus.enabled
   require 'prometheus/middleware/collector'
   require 'prometheus/middleware/exporter'
