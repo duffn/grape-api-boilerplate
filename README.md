@@ -124,9 +124,24 @@ bundle exec rake db:seed
 
 - Use your new API!
 
+### Sentry
+
+You can enable [Sentry](https://sentry.io/) for your API by setting `sentry.enabled` in your settings file(s).
+
+- Update the setting in `app/settings/<environment>.yml`.
+
+```yaml
+sentry:
+  enabled: true
+```
+
+- Add your Sentry DSN to a `SENTRY_DSN` environment variable.
+
+- See the [Sentry Rack guide](https://docs.sentry.io/platforms/ruby/guides/rack/) for more.
+
 ### Prometheus
 
-You can enabled [Prometheus](https://prometheus.io/) metrics for your API by setting `prometheus.enabled` in your production settings file.
+You can enable [Prometheus](https://prometheus.io/) metrics for your API by setting `prometheus.enabled` in your production settings file.
 
 - Update the setting in `app/settings/production.yml`.
 

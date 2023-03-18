@@ -5,3 +5,5 @@ jwt:
   expiration_time_minutes: 60
 prometheus:
   enabled: false
+sentry:
+  enabled: false

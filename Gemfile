@@ -22,6 +22,7 @@ gem 'puma', '~> 6.1'
 gem 'rack', '~> 2.2'
 gem 'rack-cors', '~> 2.0'
 gem 'rake', '~> 13.0', '>= 13.0.6'
+gem 'sentry-ruby', '~> 5.8'
 
 group :development do
   gem 'bundler-audit', '~> 0.9.1'
