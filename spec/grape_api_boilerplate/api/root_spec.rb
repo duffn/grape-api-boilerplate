@@ -11,8 +11,10 @@ describe GrapeApiBoilerplate::Api::Root do
     OUTER_APP
   end
 
-  it 'cannot get metrics when setting is not enabled' do
-    get '/metrics'
-    expect(last_response.status).to eq(404)
+  context 'when the metrics setting is disabled' do
+    it 'cannot get metrics' do
+      get '/metrics'
+      expect(last_response.status).to eq(404)
+    end
   end
 end

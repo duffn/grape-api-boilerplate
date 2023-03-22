@@ -2,33 +2,35 @@
 
 require 'spec_helper'
 
-describe GrapeApiBoilerplate::Api::Root do
+describe GrapeApiBoilerplate::Api::Endpoints::V1::WidgetEndpoint do
   include Rack::Test::Methods
 
   def app
     GrapeApiBoilerplate::Api::Root
   end
 
-  before do
-    user = create(:user)
+  let(:user) { create(:user) }
+  let(:token) do
     post '/api/login', username: user.username, password: 'password1'
     response = JSON.parse(last_response.body, symbolize_names: true)
-    @token = response[:token]
+    response[:token]
+  end
 
+  before do
     31.times do |_|
       create(:widget, user_id: user.id)
     end
   end
 
   it 'gets widgets' do
-    header 'Authorization', "Bearer #{@token}"
+    header 'Authorization', "Bearer #{token}"
     get '/api/v1/widget'
     expect(last_response.status).to eq(200)
     expect(JSON.parse(last_response.body).length).to eq(10)
   end
 
   it 'gets a second page of widgets' do
-    header 'Authorization', "Bearer #{@token}"
+    header 'Authorization', "Bearer #{token}"
     get '/api/v1/widget?page=2'
     expect(last_response.status).to eq(200)
     expect(JSON.parse(last_response.body, symbolize_names: true).length).to eq(10)
@@ -36,7 +38,7 @@ describe GrapeApiBoilerplate::Api::Root do
   end
 
   it 'gets max number of widgets' do
-    header 'Authorization', "Bearer #{@token}"
+    header 'Authorization', "Bearer #{token}"
     get '/api/v1/widget?per_page=35'
     expect(last_response.status).to eq(200)
     expect(JSON.parse(last_response.body).length).to eq(30)
