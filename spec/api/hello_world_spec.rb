@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe GrapeApiBoilerplate::Api::Root do
+describe GrapeApiBoilerplate::Api::Endpoints::V1::HelloWorldEndpoint do
   include Rack::Test::Methods
 
   def app

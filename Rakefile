@@ -15,8 +15,7 @@ end
 
 require 'rake'
 
-# Loads whole app for any other tasks
-task :environment do
+task :environment do # rubocop:disable Rake/Desc
   require File.expand_path('config/environment.rb', __dir__)
 end
 
@@ -39,7 +38,7 @@ rescue LoadError
   puts 'Not loading development only rake tasks.'
 end
 
-# Shows app routes
+desc 'Lists all of the routes'
 task routes: :environment do
   GrapeApiBoilerplate::Api::Root.routes.each do |route|
     method = route.request_method.ljust(10)
@@ -53,7 +52,7 @@ require 'bundler/setup'
 load 'tasks/otr-activerecord.rake'
 
 namespace :db do
-  task :environment do
+  task :environment do # rubocop:disable Rake/Desc
     require_relative 'config/application'
   end
 end
@@ -65,6 +64,7 @@ def prompt(message)
 end
 
 namespace :users do
+  desc 'Creates a new user'
   task create: :environment do
     email = prompt('Email: ')
     username = prompt('Username: ')
