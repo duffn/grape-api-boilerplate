@@ -14,6 +14,8 @@ the [Grape framework](https://github.com/ruby-grape/grape).
 - User authentication with [`bcrypt`](https://github.com/bcrypt-ruby/bcrypt-ruby)
   using [`jwt`](https://github.com/jwt/ruby-jwt).
 - Model pagination with [`api-pagination`](https://github.com/davidcelis/api-pagination).
+- Standard security headers with [`secure_headers`](https://github.com/github/secure_headers).
+- Monitoring and alerting with [Sentry](https://sentry.io) and[Prometheus](https://prometheus.io).
 - Comprehensive [RSpec](https://rspec.info/) test suite and code coverage.
 - Easy [fly.io](https://fly.io/) deployment.
 
