@@ -32,6 +32,7 @@ jobs:
           DATABASE_URL: postgres://test:password@127.0.0.1:5432/grape_boilerplate_test
           RACK_ENV: test
       - name: Updload code coverage results
+        if: matrix.ruby == 3.2
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
