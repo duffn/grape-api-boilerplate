@@ -20,7 +20,7 @@ describe JwtTokenService do
   end
 
   it 'encodes a JWT token' do
-    token = described_class.new.encode(user_id:)
+    token = described_class.new.encode(user_id: user_id)
     expect(token).to eq(valid_token)
   end
 

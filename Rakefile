@@ -70,7 +70,7 @@ namespace :users do
     username = prompt('Username: ')
     password = prompt('Password: ')
 
-    user = User.new(username:, password:, email:)
+    user = User.new(username: username, password: password, email: email)
     user.save!
   end
 end
