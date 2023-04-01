@@ -13,7 +13,7 @@ module GrapeApiBoilerplate
       # Logging
       insert_before Grape::Middleware::Error, GrapeLogging::Middleware::RequestLogger,
                     {
-                      logger:,
+                      logger: logger,
                       formatter: GrapeLogging::Formatters::Json.new,
                       include: [GrapeLogging::Loggers::FilterParameters.new([:password])]
                     }

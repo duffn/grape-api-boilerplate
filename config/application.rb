@@ -25,8 +25,8 @@ Config.load_and_set_settings(
 OTR::ActiveRecord.configure_from_file! 'config/database.yml'
 OTR::ActiveRecord.establish_connection!
 
-Dir[File.expand_path('./initializers/*.rb', __dir__)].each { |f| require f }
+Dir[File.expand_path('./initializers/*.rb', __dir__)].sort.each { |f| require f }
 
-Dir[File.expand_path('../app/**/*.rb', __dir__)].each do |file|
+Dir[File.expand_path('../app/**/*.rb', __dir__)].sort.each do |file|
   require file
 end

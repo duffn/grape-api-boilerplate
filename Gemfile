@@ -2,8 +2,6 @@
 
 source 'https://rubygems.org'
 
-ruby '3.1.2'
-
 gem 'activerecord', '~> 7.0'
 gem 'api-pagination', '~> 5.0'
 gem 'bcrypt', '~> 3.1', '>= 3.1.18'

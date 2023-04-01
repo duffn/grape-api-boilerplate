@@ -1,5 +1,6 @@
 name: Bundler Audit
-on: [pull_request]
+on:
+  pull_request:
 jobs:
   bundler-audit:
     strategy:
