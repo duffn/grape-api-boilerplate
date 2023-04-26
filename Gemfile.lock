@@ -182,7 +182,7 @@ GEM
     puma (6.2.2)
       nio4r (~> 2.0)
     racc (1.6.2)
-    rack (2.2.6.4)
+    rack (2.2.7)
     rack-accept (0.4.5)
       rack (>= 0.4)
     rack-cors (2.0.1)
