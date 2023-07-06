@@ -21,7 +21,7 @@ gem 'rack', '~> 2.2'
 gem 'rack-cors', '~> 2.0'
 gem 'rake', '~> 13.0', '>= 13.0.6'
 gem 'secure_headers', '~> 6.5'
-gem 'sentry-ruby', '~> 5.9'
+gem 'sentry-ruby', '~> 5.10'
 
 group :development do
   gem 'bundler-audit', '~> 0.9.1'
