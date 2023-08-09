@@ -26,7 +26,7 @@ gem 'sentry-ruby', '~> 5.10'
 group :development do
   gem 'bundler-audit', '~> 0.9.1'
   gem 'guard-puma', '~> 0.8.1'
-  gem 'rubocop', '~> 1.55'
+  gem 'rubocop', '~> 1.56'
   gem 'rubocop-rake', '~> 0.6.0'
   gem 'rubocop-rspec', '~> 2.23'
 end
