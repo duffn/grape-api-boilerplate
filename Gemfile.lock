@@ -258,7 +258,7 @@ GEM
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.4)
     thor (1.2.1)
-    timecop (0.9.7)
+    timecop (0.9.8)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.4.2)
@@ -304,7 +304,7 @@ DEPENDENCIES
   sentry-ruby (~> 5.10)
   simplecov (~> 0.22.0)
   simplecov-cobertura (~> 2.1)
-  timecop (~> 0.9.7)
+  timecop (~> 0.9.8)
 
 BUNDLED WITH
    2.3.16
