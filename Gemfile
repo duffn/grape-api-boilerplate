@@ -28,7 +28,7 @@ group :development do
   gem 'guard-puma', '~> 0.8.1'
   gem 'rubocop', '~> 1.56'
   gem 'rubocop-rake', '~> 0.6.0'
-  gem 'rubocop-rspec', '~> 2.23'
+  gem 'rubocop-rspec', '~> 2.24'
 end
 
 group :test do
