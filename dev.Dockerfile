@@ -1,13 +1,12 @@
-FROM ruby:3.1.2-alpine
+FROM ruby:3.2.2-alpine
 
 WORKDIR /usr/src/app
 
 RUN apk --no-cache add build-base \
-    libpq-dev \
-    libressl-dev \
-    libffi-dev \
-    openssl-dev \
-    tini
+  libpq-dev \
+  libffi-dev \
+  openssl-dev \
+  tini
 
 RUN bundle config --global frozen 1
 COPY Gemfile Gemfile.lock /usr/src/app/
