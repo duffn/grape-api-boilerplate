@@ -47,7 +47,7 @@ GEM
     dry-configurable (1.0.1)
       dry-core (~> 1.0, < 2)
       zeitwerk (~> 2.6)
-    dry-core (1.0.0)
+    dry-core (1.0.1)
       concurrent-ruby (~> 1.0)
       zeitwerk (~> 2.6)
     dry-inflector (1.0.0)
@@ -100,8 +100,9 @@ GEM
       jwt (~> 2.6)
       keyless (~> 1.1)
       recursive-open-struct (~> 1.1)
-    grape-swagger (1.6.1)
-      grape (~> 1.3)
+    grape-swagger (2.0.1)
+      grape (>= 1.7, < 3.0)
+      rack-test (~> 2)
     grape_logging (1.8.4)
       grape
       rack
@@ -275,7 +276,7 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.5.0)
-    zeitwerk (2.6.8)
+    zeitwerk (2.6.12)
 
 PLATFORMS
   aarch64-linux-musl
@@ -296,7 +297,7 @@ DEPENDENCIES
   grape (~> 1.7)
   grape-entity (~> 1.0.0)
   grape-jwt-authentication (~> 2.2)
-  grape-swagger (~> 1.6)
+  grape-swagger (~> 2.0)
   grape_logging (~> 1.8, >= 1.8.4)
   guard-puma (~> 0.8.1)
   jwt (~> 2.7)
