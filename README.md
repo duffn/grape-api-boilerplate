@@ -17,7 +17,6 @@ the [Grape framework](https://github.com/ruby-grape/grape).
 - Standard security headers with [`secure_headers`](https://github.com/github/secure_headers).
 - Monitoring and alerting with [Sentry](https://sentry.io) and[Prometheus](https://prometheus.io).
 - Comprehensive [RSpec](https://rspec.info/) test suite and code coverage.
-- Easy [fly.io](https://fly.io/) deployment.
 
 ## Running
 
@@ -68,64 +67,6 @@ documentation.
 
 ## Production
 
-### fly.io
-
-You can easily deploy to fly.io with a few steps.
-
-- Login and create a new fly.io application.
-
-```
-flyctl auth login
-flyctl launch
-```
-
-- Create a new free tier PostgreSQL database.
-
-```
-flyctl postgres create
-flyctl postgres attach --app <my-app-name> <my-app-name>-db
-```
-
-- Generate a key pair for use with fly.io JWT authentication.
-  - NOTE: _Ensure that you keep the private key secret and out of your git repository!_
-
-```
-ssh-keygen -t rsa -b 4096 -m PEM -f fly_jwtRS256.key
-openssl rsa -in fly_jwtRS256.key -pubout -outform PEM -out fly_jwtRS256.key.pub
-```
-
-- Set necessary [environment variables](https://fly.io/docs/reference/secrets/#setting-secrets) using `flyctl`, for example `flyctl secrets set RACK_ENV=production`. You should at least set the secrets below.
-
-```
-RACK_ENV=production
-GRAPE_BOILERPLATE_SETTINGS__JWT__PRIVATE_KEY=<contents of above fly_jwtRS256.key>
-GRAPE_BOILERPLATE_SETTINGS__JWT__PUBLIC_KEY=<contents of above fly_jwtRS256.key.pub>
-```
-
-- Deploy your code to your new fly.io app.
-
-```
-flyctl deploy
-```
-
-- Create an example user.
-
-```
-flyctl ssh console
-cd /usr/src/app
-bundle exec rake users:create
-```
-
-- Or alternatively, seed your database with a couple of users and widgets for testing.
-
-```
-flyctl ssh console
-cd /usr/src/app
-bundle exec rake db:seed
-```
-
-- Use your new API!
-
 ### Sentry
 
 You can enable [Sentry](https://sentry.io/) for your API by setting `sentry.enabled` in your settings file(s).
@@ -155,25 +96,6 @@ prometheus:
 - The default middleware will provide some basic metrics out of the box. See the [Ruby Prometheus client library documentation](https://github.com/prometheus/client_ruby) for advanced usage.
 
 _Note_: Prometheus metrics should not be exposed publicly! Please ensure you know what you're doing before enabling this feature in your environment.
-
-#### Want to play around?
-
-There's an instance of this API running at https://grape-api-boilerplate.fly.dev/. If it doesn't respond right
-away, give it a few seconds to awake from the free tier hibernation.
-
-```
-# Hello world!
-curl https://grape-api-boilerplate.fly.dev/api/v1/hello | jq .
-
-# Authenticate with the test user.
-token=$(curl -XPOST \
-  -H "Content-Type:application/json" \
-  -d '{"username":"grape_user","password":"grape_user1"}' \
-  https://grape-api-boilerplate.fly.dev/api/login | jq -r '.token')
-
-curl -H "Authorization: Bearer ${token}" \
-  https://grape-api-boilerplate.fly.dev/api/v1/widget | jq .
-```
 
 ### Docker
 
