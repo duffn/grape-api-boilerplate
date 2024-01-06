@@ -19,7 +19,7 @@ task :environment do # rubocop:disable Rake/Desc
   require File.expand_path('config/environment.rb', __dir__)
 end
 
-# Don't bomb when running Rake tasks on fly.io.
+# Don't bomb when running Rake tasks on something like fly.io.
 begin
   # RSpec
   require 'rspec/core'
