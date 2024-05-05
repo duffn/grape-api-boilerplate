@@ -11,7 +11,7 @@ end
 
 use OTR::ActiveRecord::ConnectionManagement
 
-use SecureHeaders::Middleware
+use SecureHeaders::Middleware if ENV['RACK_ENV'] == 'production'
 
 use Rack::Static, urls: ['/public/swagger'] unless ENV['RACK_ENV'] == 'production'
 
