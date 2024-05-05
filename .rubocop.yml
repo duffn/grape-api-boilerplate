@@ -3,7 +3,7 @@ require:
   - rubocop-rake
 
 AllCops:
-  TargetRubyVersion: 2.7
+  TargetRubyVersion: 3.1
   NewCops: enable
   Exclude:
     - vendor/**/*
@@ -26,4 +26,7 @@ RSpec/ExampleLength:
   Enabled: false
 
 RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpecRails/HaveHttpStatus:
   Enabled: false

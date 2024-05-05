@@ -2,6 +2,9 @@
 
 ENV['RACK_ENV'] ||= 'test'
 
+require 'factory_bot'
+require 'faker'
+require 'timecop'
 require 'simplecov'
 require 'simplecov-cobertura'
 SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
