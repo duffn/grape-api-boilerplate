@@ -28,5 +28,3 @@ RSpec/ExampleLength:
 RSpec/MultipleExpectations:
   Enabled: false
 
-RSpecRails/HaveHttpStatus:
-  Enabled: false
