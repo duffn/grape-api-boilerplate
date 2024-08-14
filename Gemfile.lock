@@ -236,7 +236,7 @@ GEM
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     secure_headers (6.7.0)
-    sentry-ruby (5.18.2)
+    sentry-ruby (5.19.0)
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
     shellany (0.0.1)
@@ -295,7 +295,7 @@ DEPENDENCIES
   rubocop-rake (~> 0.6.0)
   rubocop-rspec (~> 3.0)
   secure_headers (~> 6.7)
-  sentry-ruby (~> 5.18)
+  sentry-ruby (~> 5.19)
   simplecov (~> 0.22.0)
   simplecov-cobertura (~> 2.1)
   timecop (~> 0.9.10)
