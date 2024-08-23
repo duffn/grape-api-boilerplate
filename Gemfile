@@ -24,7 +24,7 @@ gem 'secure_headers', '~> 6.7'
 gem 'sentry-ruby', '~> 5.19'
 
 group :development do
-  gem 'bundler-audit', '~> 0.9.1'
+  gem 'bundler-audit', '~> 0.9.2'
   gem 'guard-puma', '~> 0.8.1'
   gem 'rubocop', '~> 1.65'
   gem 'rubocop-rake', '~> 0.6.0'
