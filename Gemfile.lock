@@ -81,7 +81,7 @@ GEM
       jwt (~> 2.6)
       keyless (~> 1.1)
       recursive-open-struct (~> 1.1)
-    grape-swagger (2.1.0)
+    grape-swagger (2.1.1)
       grape (>= 1.7, < 3.0)
       rack-test (~> 2)
     grape_logging (1.8.4)
@@ -108,7 +108,7 @@ GEM
       csv
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
-    i18n (1.14.5)
+    i18n (1.14.6)
       concurrent-ruby (~> 1.0)
     json (2.7.2)
     jwt (2.8.2)
@@ -145,7 +145,7 @@ GEM
     multi_json (1.15.0)
     multi_xml (0.7.1)
       bigdecimal (~> 3.1)
-    mustermann (3.0.2)
+    mustermann (3.0.3)
       ruby2_keywords (~> 0.0.1)
     mustermann-grape (1.1.0)
       mustermann (>= 1.0.0)
@@ -255,7 +255,7 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.6.0)
-    zeitwerk (2.6.17)
+    zeitwerk (2.6.18)
 
 PLATFORMS
   aarch64-linux-musl
