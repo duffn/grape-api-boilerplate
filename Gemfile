@@ -20,7 +20,7 @@ gem 'puma', '~> 6.4'
 gem 'rack', '~> 2.2.8'
 gem 'rack-cors', '~> 2.0'
 gem 'rake', '~> 13.1'
-gem 'secure_headers', '~> 6.7'
+gem 'secure_headers', '~> 7.0'
 gem 'sentry-ruby', '~> 5.21'
 
 group :development do
