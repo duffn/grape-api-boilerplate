@@ -36,6 +36,6 @@ jobs:
           RACK_ENV: test
       - name: Updload code coverage results
         if: matrix.ruby == 3.3
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
