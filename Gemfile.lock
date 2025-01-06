@@ -112,7 +112,7 @@ GEM
     i18n (1.14.6)
       concurrent-ruby (~> 1.0)
     json (2.9.1)
-    jwt (2.9.3)
+    jwt (2.10.1)
       base64
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
@@ -279,7 +279,7 @@ DEPENDENCIES
   grape-swagger (~> 2.1)
   grape_logging (~> 1.8, >= 1.8.4)
   guard-puma (~> 0.8.1)
-  jwt (~> 2.9)
+  jwt (~> 2.10)
   kaminari (~> 1.2, >= 1.2.2)
   otr-activerecord (~> 2.5)
   pg (~> 1.5)
