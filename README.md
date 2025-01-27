@@ -52,6 +52,27 @@ docker compose run --rm app bundle exec rake users:create
 
 - Enter your desired email, username, and password.
 
+## Authentication and requests
+
+- Hello world.
+
+```
+curl http://localhost:3000/api/v1/hello | jq .
+```
+
+- Authenticate and authenticated request.
+
+```
+# Authenticate with the test user.
+token=$(curl -XPOST \
+  -H "Content-Type:application/json" \
+  -d '{"username":"grape_user","password":"grape_user1"}' \
+  http://localhost:3000/api/login | jq -r '.token')
+
+curl -H "Authorization: Bearer ${token}" \
+  http://localhost:3000/api/v1/widget | jq .
+```
+
 ## Tests
 
 - Run linting and tests.
