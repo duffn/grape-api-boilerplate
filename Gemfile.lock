@@ -247,7 +247,7 @@ GEM
     ruby2_keywords (0.0.5)
     secure_headers (7.1.0)
     securerandom (0.4.1)
-    sentry-ruby (5.21.0)
+    sentry-ruby (5.24.0)
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
     shellany (0.0.1)
@@ -306,7 +306,7 @@ DEPENDENCIES
   rubocop-rake (~> 0.6.0)
   rubocop-rspec (~> 3.3)
   secure_headers (~> 7.1)
-  sentry-ruby (~> 5.21)
+  sentry-ruby (~> 5.24)
   simplecov (~> 0.22.0)
   simplecov-cobertura (~> 2.1)
   timecop (~> 0.9.10)
