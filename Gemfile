@@ -34,7 +34,7 @@ end
 group :test do
   gem 'factory_bot', '~> 6.5'
   gem 'faker', '~> 3.5'
-  gem 'rack-test', '~> 2.1'
+  gem 'rack-test', '~> 2.2'
   gem 'rspec', '~> 3.13'
   gem 'simplecov', '~> 0.22.0'
   gem 'simplecov-cobertura', '~> 2.1'
