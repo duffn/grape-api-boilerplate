@@ -27,7 +27,7 @@ group :development do
   gem 'bundler-audit', '~> 0.9.2'
   gem 'guard-puma', '~> 0.8.1'
   gem 'rubocop', '~> 1.75'
-  gem 'rubocop-rake', '~> 0.6.0'
+  gem 'rubocop-rake', '~> 0.7.1'
   gem 'rubocop-rspec', '~> 3.6'
 end
 
