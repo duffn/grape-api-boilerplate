@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-OUTER_APP = Rack::Builder.parse_file('config.ru').first
+OUTER_APP = Rack::Builder.parse_file('config.ru')
 
 describe GrapeApiBoilerplate::Api::Root do
   include Rack::Test::Methods
