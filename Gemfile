@@ -19,7 +19,7 @@ gem 'prometheus-client', '~> 4.2'
 gem 'puma', '~> 6.6'
 gem 'rack', '~> 3.1.15'
 gem 'rack-cors', '~> 3.0'
-gem 'rake', '~> 13.1'
+gem 'rake', '~> 13.3'
 gem 'secure_headers', '~> 7.1'
 gem 'sentry-ruby', '~> 5.24'
 
