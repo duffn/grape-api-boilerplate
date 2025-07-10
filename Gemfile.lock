@@ -58,7 +58,7 @@ GEM
       concurrent-ruby (~> 1.0)
       dry-core (~> 1.1)
       zeitwerk (~> 2.6)
-    dry-types (1.8.2)
+    dry-types (1.8.3)
       bigdecimal (~> 3.0)
       concurrent-ruby (~> 1.0)
       dry-core (~> 1.0)
@@ -93,8 +93,8 @@ GEM
     grape-swagger (2.1.2)
       grape (>= 1.7, < 3.0)
       rack-test (~> 2)
-    grape_logging (1.8.4)
-      grape
+    grape_logging (2.1.1)
+      grape (< 2.4.0)
       rack
     guard (2.18.1)
       formatador (>= 0.2.4)
@@ -298,7 +298,7 @@ DEPENDENCIES
   grape-entity (~> 1.0.0)
   grape-jwt-authentication (~> 2.8)
   grape-swagger (~> 2.1)
-  grape_logging (~> 1.8, >= 1.8.4)
+  grape_logging (~> 2.1)
   guard-puma (~> 0.8.1)
   jwt (~> 2.10)
   kaminari (~> 1.2, >= 1.2.2)
