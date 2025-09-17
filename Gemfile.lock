@@ -216,7 +216,7 @@ GEM
     recursive-open-struct (2.0.0)
       ostruct
     regexp_parser (2.10.0)
-    rexml (3.3.9)
+    rexml (3.4.2)
     rspec (3.13.1)
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
