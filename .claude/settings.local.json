@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gem search:*)",
+      "Bash(bundle update:*)",
+      "Bash(bundle exec rspec:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
