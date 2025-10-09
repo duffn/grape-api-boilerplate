@@ -8,6 +8,7 @@ module GrapeApiBoilerplate
           version 'v1'
 
           include Grape::Jwt::Authentication
+
           auth :jwt
 
           resource :widget, desc: 'Widgets.' do
