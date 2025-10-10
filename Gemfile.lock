@@ -185,7 +185,12 @@ GEM
     parser (3.3.9.0)
       ast (~> 2.4.1)
       racc
-    pg (1.5.9)
+    pg (1.6.2)
+    pg (1.6.2-aarch64-linux-musl)
+    pg (1.6.2-arm64-darwin)
+    pg (1.6.2-x86_64-darwin)
+    pg (1.6.2-x86_64-linux)
+    pg (1.6.2-x86_64-linux-musl)
     prism (1.5.2)
     prometheus-client (4.2.5)
       base64
@@ -303,7 +308,7 @@ DEPENDENCIES
   jwt (~> 2.10)
   kaminari (~> 1.2, >= 1.2.2)
   otr-activerecord (~> 2.5)
-  pg (~> 1.5)
+  pg (~> 1.6)
   prometheus-client (~> 4.2)
   puma (~> 6.6)
   rack (~> 3.1.17)
