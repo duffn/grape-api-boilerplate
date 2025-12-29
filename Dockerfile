@@ -1,4 +1,4 @@
-FROM ruby:3.4.8-alpine as builder
+FROM ruby:4.0.0-alpine as builder
 
 WORKDIR /usr/src/app
 
@@ -13,7 +13,7 @@ RUN bundle config set --without 'development test' \
   && bundle install --jobs=3 --retry=3
 
 # Production
-FROM ruby:3.4.8-alpine as production
+FROM ruby:4.0.0-alpine as production
 
 ENV TINI_SUBREAPER=true
 
