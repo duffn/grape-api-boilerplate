@@ -31,7 +31,7 @@ GEM
     api-pagination (6.0.0)
     ast (2.4.3)
     base64 (0.3.0)
-    bcrypt (3.1.20)
+    bcrypt (3.1.21)
     bigdecimal (3.3.1)
     builder (3.3.0)
     bundler-audit (0.9.3)
