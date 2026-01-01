@@ -28,7 +28,7 @@ GEM
       uri (>= 0.13.1)
     addressable (2.8.8)
       public_suffix (>= 2.0.2, < 8.0)
-    api-pagination (6.0.0)
+    api-pagination (7.0.0)
     ast (2.4.3)
     base64 (0.3.0)
     bcrypt (3.1.21)
@@ -314,7 +314,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord (~> 8.1)
-  api-pagination (~> 6.0)
+  api-pagination (~> 7.0)
   bcrypt (~> 3.1)
   bundler-audit (~> 0.9.3)
   config (~> 5.6)
